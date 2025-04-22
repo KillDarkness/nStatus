@@ -4,4 +4,4 @@
 http-port: 25641
 
 # Deixe em branco para desativar a autenticação
-api-token:
+api-token: ""
