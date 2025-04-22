@@ -1,0 +1,6 @@
+name: nStatus
+version: 1.0
+main: me.nstatus.NStatus
+api-version: 1.21
+author: KillDarkness
+description: API de status para Minecraft 1.21
