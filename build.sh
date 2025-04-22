@@ -2,11 +2,16 @@
 
 # Script para compilar o plugin nStatus
 
-echo "🛠️  Executando mvn clean package..."
-mvn clean package
+echo "🔧 Iniciando processo de build do plugin nStatus..."
+sleep 0.5
+echo "⏳ Compilando com Maven..."
 
-if [ $? -ne 0 ]; then
-    echo "❌ Erro no build Maven!"
+# Executa o build e oculta a saída, mostrando só se deu bom ou ruim
+mvn clean package > /dev/null 2>&1
+BUILD_STATUS=$?
+
+if [ $BUILD_STATUS -ne 0 ]; then
+    echo "❌ Erro ao compilar o plugin! Verifique o código."
     exit 1
 fi
 
@@ -18,5 +23,5 @@ if [ -z "$JAR_FILE" ]; then
     exit 1
 fi
 
-echo "📦 Arquivo gerado com sucesso: $JAR_FILE"
-echo "✅ Build concluído!"
+echo "✅ Build finalizado com sucesso!"
+echo "📦 Arquivo gerado: $JAR_FILE"
