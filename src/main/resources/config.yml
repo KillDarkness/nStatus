@@ -1,0 +1,7 @@
+# Configuração do nStatus
+
+# PORTA SEPARADA PARA REQUISIÇÃO.
+http-port: 25641
+
+# Deixe em branco para desativar a autenticação
+api-token:
