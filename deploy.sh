@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Configurações do SFTP
-SFTP_SERVER="ascenty-01.destinyhost.com.br"
-SFTP_USER="killdarknes.c0420c89"
-SFTP_PASSWORD="killdarkness45"
-SFTP_PORT="2022"
+SFTP_SERVER="SEU_SERVER_SFTP"
+SFTP_USER="SEU_USER_SFTP"
+SFTP_PASSWORD="SUA_SENHA_SFTP"
+SFTP_PORT="SUA_SFTP_PORT"
 REMOTE_DIR="plugins/"
 
 # Encontrar o arquivo JAR mais recente
