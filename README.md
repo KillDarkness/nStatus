@@ -27,7 +27,7 @@ http-port: 25641
 
 # Token de autenticação para a API
 # Deixe em branco para desativar a autenticação
-api-token: 
+api-token: ""
 ```
 
 * `http-port`: Porta em que o servidor HTTP irá rodar (padrão: 25641)
