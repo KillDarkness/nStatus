@@ -20,6 +20,7 @@ public class ListRoutes {
         // Lista todos os jogadores online
         get("/list", (req, res) -> {
             res.type("application/json");
+            res.status(200);
             
             Collection<? extends Player> onlinePlayers = Bukkit.getOnlinePlayers();
             StringBuilder json = new StringBuilder();
@@ -39,7 +40,8 @@ public class ListRoutes {
             }
             
             json.append(String.join(", ", playerEntries));
-            json.append("] }");
+            json.append("], ");
+            json.append("\"status\": 200 }");
             
             return json.toString();
         });
