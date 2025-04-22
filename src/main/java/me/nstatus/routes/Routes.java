@@ -30,6 +30,12 @@ public class Routes {
         new MainRoute().setup();
         new StatusRoutes(plugin).setup();
         new ListRoutes(plugin).setup();
+        
+        // Novas rotas adicionadas
+        new ListBanRoutes(plugin).setup();
+        new WhitelistRoutes(plugin).setup();
+        new MotdRoute(plugin).setup();
+        new TpsRoute(plugin).setup();
     }
     
     private void setupErrorHandlers() {
