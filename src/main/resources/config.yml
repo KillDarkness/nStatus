@@ -4,4 +4,6 @@
 http-port: 25641
 
 # Deixe em branco para desativar a autenticação
-api-token: ""
+# RECOMENDADO USAR. Se uma pessoa descobrir está rota ela consegue ver informações sobre o servidor
+# Sempre que o servidor receber uma requisição será necessario colocar o token.
+api-token: "UmaSenhaSegura"
