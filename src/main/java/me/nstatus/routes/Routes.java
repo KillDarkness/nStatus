@@ -18,15 +18,25 @@ public class Routes {
         // Configurar tratamento de erros
         setupErrorHandlers();
         
-        // Aplicar filtro de autenticação, se habilitado
+        // Configurar rotas de documentação - Agora com controle de autenticação
+        new DocRoutes(plugin).setup();
+        
+        // Aplicar filtro de autenticação para as rotas da API, se habilitado
         if (authHandler.isAuthEnabled()) {
-            plugin.getLogger().info("Autenticação por token ativada. Todas as requisições precisarão de um token.");
-            before("*", authHandler.getAuthFilter());
+            plugin.getLogger().info("Autenticação por token ativada. Todas as requisições à API precisarão de um token.");
+            // Aplicar autenticação em todas as rotas exceto /doc
+            before("*", (request, response) -> {
+                String path = request.pathInfo();
+                // Não aplicar autenticação nas rotas de documentação
+                if (!path.startsWith("/doc")) {
+                    authHandler.getAuthFilter().handle(request, response);
+                }
+            });
         } else {
             plugin.getLogger().info("Autenticação por token desativada. Todas as requisições serão permitidas.");
         }
         
-        // Configura as rotas
+        // Configura as rotas da API
         new MainRoute().setup();
         new StatusRoutes(plugin).setup();
         new ListRoutes(plugin).setup();
